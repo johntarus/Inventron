@@ -1,0 +1,6 @@
+export { default as Home } from './Home'
+export { default as Inventory } from './Inventory'
+export { default as People } from './People'
+export { default as Shops } from './Shops'
+export { default as Transactions } from './Transactions'
+export { default as ChartSupport } from './ChartSupport'
