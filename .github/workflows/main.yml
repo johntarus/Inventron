@@ -1,4 +1,4 @@
-name: Deepwall CI
+name: Inventron CI
 
 on:
     push:
@@ -27,6 +27,8 @@ jobs:
             - run: npm run lint
             # run prettier
             - run: npm run format
+            # all code pushed is formated
+            - run: prettier --check .
             # verify that there are no type and build errors
             - run: npm run build
             - run: npm start &

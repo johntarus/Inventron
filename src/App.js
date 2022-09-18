@@ -1,20 +1,29 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Navbar, Header, Sidebar } from './components'
-import { Home, Inventory, People, Shops, Transactions } from './pages'
+import {
+    Home,
+    Inventory,
+    People,
+    Shops,
+    Transactions,
+    ChartSupport,
+} from './pages'
 
 const App = () => {
-    const activeMenu = false
+    const activeMenu = true
     return (
         <div>
             <BrowserRouter>
                 <div className="flex relative">
                     {activeMenu ? (
                         <div className="fixed bg-lightBlue w-60 min-h-screen rounded-r-lg text-white">
-                            Sidebar1
+                            <Sidebar />
                         </div>
                     ) : (
-                        <div className="w-0">Sidebar</div>
+                        <div className="w-0">
+                            <Sidebar />
+                        </div>
                     )}
                     <div
                         className={`bg-mainBg min-h-screen w-full ${
@@ -22,23 +31,23 @@ const App = () => {
                         }`}
                     >
                         <div className="fixed md:static bg-main-Bg navbar w-full shadow-md h-20">
-                            Navbar
+                            <Navbar />
                         </div>
                     </div>
                     <div>
                         <Routes>
                             {/* Dashboard */}
-                            <Route path="/" element="Home" />
-                            <Route path="/inventory" element="Inventory" />
+                            <Route path="/" element={<Home />} />
+                            <Route path="/inventory" element={<Inventory />} />
                             <Route
                                 path="/transactions"
-                                element="Transactions"
+                                element={<Transactions />}
                             />
-                            <Route path="/people" element="People" />
-                            <Route path="/shops" element="Shops" />
+                            <Route path="/people" element={<People />} />
+                            <Route path="/shops" element={<Shops />} />
                             <Route
                                 path="/chart-support"
-                                element="Chart Support"
+                                element={<ChartSupport />}
                             />
                         </Routes>
                     </div>
