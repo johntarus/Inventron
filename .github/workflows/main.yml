@@ -1,0 +1,34 @@
+name: Deepwall CI
+
+on:
+    push:
+        branches: ['main']
+    pull_request:
+        branches: ['main']
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [16.x]
+
+        steps:
+            - uses: actions/checkout@v3
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'npm'
+            # install dependencies
+            - run: npm ci
+            # run eslint
+            - run: npm run lint
+            # run prettier
+            - run: npm run format
+            # verify that there are no type and build errors
+            - run: npm run build
+            - run: npm start &
+                  npx wait-on --timeout 40000
+            # - run: npm test
