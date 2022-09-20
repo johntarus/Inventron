@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Navbar, Header, Sidebar } from './components'
 import {
@@ -9,15 +9,16 @@ import {
     Transactions,
     ChartSupport,
 } from './pages'
+import { useStateContext } from './contexts/ContextProvider'
 
 const App = () => {
-    const activeMenu = true
+    const { activeMenu } = useStateContext()
     return (
         <div>
             <BrowserRouter>
                 <div className="flex relative">
                     {activeMenu ? (
-                        <div className="fixed bg-lightBlue w-60 min-h-screen rounded-r-lg text-white">
+                        <div className="fixed bg-lightBlue w-60 min-h-screen rounded-r-[16px] text-white z-10">
                             <Sidebar />
                         </div>
                     ) : (
@@ -30,14 +31,13 @@ const App = () => {
                             activeMenu ? 'md:ml-0' : 'flex-2'
                         }`}
                     >
-                        <div className="fixed md:static bg-main-Bg navbar w-full shadow-md h-20">
+                        <div className="fixed md:static dark:bg-main-dark-bg navbar w-full shadow-md h-14 items-center">
                             <Navbar />
                         </div>
                     </div>
                     <div>
                         <Routes>
-                            {/* Dashboard */}
-                            <Route path="/" element={<Home />} />
+                            <Route path="/home" element={<Home />} />
                             <Route path="/inventory" element={<Inventory />} />
                             <Route
                                 path="/transactions"
