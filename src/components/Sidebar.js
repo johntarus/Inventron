@@ -7,25 +7,18 @@ import { dashBoardLinks } from '../assets/data'
 
 const Sidebar = () => {
     const activeMenu = true
+    const activeLink = `flex items-center gap-4 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2`
+    const normalLink = `flex items-center gap-4 pl-4 pt-3 pb-2.5 rounded-lg text-md text-white hover:text-gray-300 m-2`
     return (
         <div className="ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10">
             {activeMenu && (
                 <>
                     <div className="flex justify-between items-center">
-                        {/* <div className="mt-4 text-3xl font-extrabold text-[#FFE6C9]">
-                            <h1>Inventron</h1>
-                        </div> */}
-
                         <Link
-                            to="/"
+                            to="/home"
                             onClick={() => {}}
-                            className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold text-[#FFE6C9]"
+                            className="items-center gap-3 ml-3 pl-4 mt-4 flex text-3xl font-extrabold text-[#FFE6C9]"
                         >
-                            <img
-                                src={home}
-                                alt="home-icon"
-                                className="h-6 w-8 mr-4"
-                            />
                             Inventron
                         </Link>
                         <TooltipComponent
@@ -41,11 +34,23 @@ const Sidebar = () => {
                             </button>
                         </TooltipComponent>
                     </div>
-                    <div className="mt-10">
-                        {dashBoardLinks.map((link, index) => (
-                            <div key={index} className="text-white m-3 mt-4">
-                                {link.name}
-                            </div>
+                    <div className="mt-32">
+                        {dashBoardLinks.map((link) => (
+                            <NavLink
+                                to={`/${link.linkName}`}
+                                key={link.name}
+                                onClick={() => {}}
+                                className={({ isActive }) =>
+                                    isActive ? activeLink : normalLink
+                                }
+                            >
+                                <img
+                                    src={link.icon}
+                                    alt="link-icon"
+                                    className="h-6 w-8 mr-1"
+                                />
+                                <span>{link.name}</span>
+                            </NavLink>
                         ))}
                     </div>
                 </>
