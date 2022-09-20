@@ -28,7 +28,7 @@ jobs:
             # run prettier
             - run: npm run format
             # all code pushed is formated
-            - run: prettier --check .
+            # - run: prettier --check .
             # verify that there are no type and build errors
             - run: npm run build
             - run: npm start &
