@@ -60,7 +60,7 @@ const Navbar = () => {
                 icon={<AiOutlineMenu />}
             />
             <div className="flex">
-                <form className="hidden md:block">
+                <form className="hidden md:block mx-4">
                     <label
                         htmlFor="default-search"
                         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300"
@@ -94,7 +94,7 @@ const Navbar = () => {
                         />
                     </div>
                 </form>{' '}
-                <div className="hover:bg-gray-300 rounded-lg">
+                <div className="hover:bg-gray-300 rounded-lg mx-4">
                     {' '}
                     <NavButton
                         title="Notifications"
