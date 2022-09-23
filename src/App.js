@@ -18,7 +18,7 @@ const App = () => {
             <BrowserRouter>
                 <div className="flex relative">
                     {activeMenu ? (
-                        <div className="fixed bg-lightBlue w-60 min-h-screen rounded-r-[16px] text-white z-10">
+                        <div className="fixed bg-lightBlue md:w-44 min-h-screen rounded-r-[16px] text-white z-10">
                             <Sidebar />
                         </div>
                     ) : (
@@ -34,22 +34,26 @@ const App = () => {
                         <div className="fixed md:static dark:bg-main-dark-bg navbar w-full shadow-md h-14 items-center">
                             <Navbar />
                         </div>
-                    </div>
-                    <div>
-                        <Routes>
-                            <Route path="/home" element={<Home />} />
-                            <Route path="/inventory" element={<Inventory />} />
-                            <Route
-                                path="/transactions"
-                                element={<Transactions />}
-                            />
-                            <Route path="/people" element={<People />} />
-                            <Route path="/shops" element={<Shops />} />
-                            <Route
-                                path="/chart-support"
-                                element={<ChartSupport />}
-                            />
-                        </Routes>
+
+                        <div className="md:ml-48">
+                            <Routes>
+                                <Route path="/home" element={<Home />} />
+                                <Route
+                                    path="/inventory"
+                                    element={<Inventory />}
+                                />
+                                <Route
+                                    path="/transactions"
+                                    element={<Transactions />}
+                                />
+                                <Route path="/people" element={<People />} />
+                                <Route path="/shops" element={<Shops />} />
+                                <Route
+                                    path="/chart-support"
+                                    element={<ChartSupport />}
+                                />
+                            </Routes>
+                        </div>
                     </div>
                 </div>
             </BrowserRouter>
