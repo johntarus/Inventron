@@ -16,17 +16,17 @@ const Sidebar = () => {
         }
     }
 
-    const activeLink = `flex items-center gap-4 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2`
-    const normalLink = `flex items-center gap-4 pl-4 pt-3 pb-2.5 rounded-lg text-md text-white hover:text-gray-300 m-2`
+    const activeLink = `flex items-center gap-4 pt-3 pb-2.5 rounded-lg text-white text-sm`
+    const normalLink = `flex items-center gap-4 pt-6 md:pt-3 pb-2.5 my-4 rounded-lg text-sm text-white text-xs hover:text-gray-300`
     return (
-        <div className="ml-3 h-screen md:overflow-hidden overflow-auto md:hover:overflow-auto pb-10">
+        <div className="relative h-screen md:overflow-hidden ml-2 overflow-auto md:hover:overflow-auto pb-10">
             {activeMenu && (
                 <>
                     <div className="flex justify-between items-center">
                         <Link
                             to="/home"
                             onClick={handleCloseSideBar}
-                            className="items-center gap-3 ml-3 pl-4 mt-4 flex text-3xl font-extrabold text-[#FFE6C9]"
+                            className="items-center gap-2 mt-4 flex text-3xl font-extrabold text-[#FFE6C9]"
                         >
                             Inventron
                         </Link>
@@ -47,7 +47,7 @@ const Sidebar = () => {
                             </button>
                         </TooltipComponent>
                     </div>
-                    <div className="mt-32">
+                    <div className="mt-20">
                         {dashBoardLinks.map((link) => (
                             <NavLink
                                 to={`/${link.linkName}`}
@@ -60,20 +60,20 @@ const Sidebar = () => {
                                 <img
                                     src={link.icon}
                                     alt="link-icon"
-                                    className="h-6 w-8 mr-1"
+                                    className="h-4 w-6 mr-1"
                                 />
                                 <span>{link.name}</span>
                             </NavLink>
                         ))}
                     </div>
-                    <div className="flex mt-12">
+                    <div className="absolute flex bottom-6 md:bottom-4 -ml-6 cursor-pointer">
                         <img
                             src={profile}
-                            className="h-8 w-8 ml-8 rounded-full"
+                            className="ml-8 h-6 w-6 rounded-full ring-2 mr-2 ring-white"
                         />
-                        <div className="flex flex-col text-xs ml-2">
-                            <p>Tafari Mwangi</p>
-                            <p className="flex items-center">
+                        <div className="flex flex-col text-xs">
+                            <p className="text-bold">Tafari Mwangi</p>
+                            <p className="flex items-center font-extralight text-gray-400">
                                 Active
                                 <span>
                                     {
