@@ -35,7 +35,7 @@ const App = () => {
                             <Navbar />
                         </div>
 
-                        <div className="md:ml-48">
+                        <div className="md:ml-44">
                             <Routes>
                                 <Route path="/home" element={<Home />} />
                                 <Route
