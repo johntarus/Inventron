@@ -1,10 +1,10 @@
 import React from 'react'
 import hero from '../assets/hero.svg'
 import { BiDotsVerticalRounded } from 'react-icons/bi'
+import { BsFillEyeFill } from 'react-icons/bs'
 import customers from '../assets/customers.svg'
 import copy from '../assets/copy.svg'
 import wallet from '../assets/wallet.svg'
-import '../index.css'
 import {
     CircularProgressbarWithChildren,
     buildStyles,
@@ -13,8 +13,8 @@ import 'react-circular-progressbar/dist/styles.css'
 
 const Home = () => {
     return (
-        <div className="flex flex-col md:flex-row mt-12 md:mt-0 text-gray-600">
-            <div className="flex flex-col md:ml-4 w-full md:w-3/4">
+        <div className="relative flex flex-col md:flex-row mt-14 text-gray-600">
+            <div className="flex flex-col md:ml-4 w-full md:pr-6 md:w-3/4">
                 <div className="my-4 font-bold text-xl ml-4 md:ml-0">
                     Dashboard
                 </div>
@@ -40,13 +40,81 @@ const Home = () => {
                             view all
                         </button>
                     </div>
+                    <p>
+                        Where does it come from? Contrary to popular belief,
+                        Lorem Ipsum is not simply random text. It has roots in a
+                        piece of classical Latin literature from 45 BC, making
+                        it over 2000 years old. Richard McClintock, a Latin
+                        professor at Hampden-Sydney College in Virginia, looked
+                        up one of the more obscure Latin words, consectetur,
+                        from a Lorem Ipsum passage, and going through the cites
+                        of the word in classical literature, discovered the
+                        undoubtable source. Lorem Ipsum comes from sections
+                        1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum"
+                        (The Extremes of Good and Evil) by Cicero, written in 45
+                        BC. This book is a treatise on the theory of ethics,
+                        very popular during the Renaissance. The first line of
+                        Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from
+                        a line in section 1.10.32. The standard chunk of Lorem
+                        Ipsum used since the 1500s is reproduced below for those
+                        interested. Sections 1.10.32 and 1.10.33 from "de
+                        Finibus Bonorum et Malorum" by Cicero are also
+                        reproduced in their exact original form, accompanied by
+                        English versions from the 1914 translation by H.
+                        Rackham.Where does it come from? Contrary to popular
+                        belief, Lorem Ipsum is not simply random text. It has
+                        roots in a piece of classical Latin literature from 45
+                        BC, making it over 2000 years old. Richard McClintock, a
+                        Latin professor at Hampden-Sydney College in Virginia,
+                        looked up one of the more obscure Latin words,
+                        consectetur, from a Lorem Ipsum passage, and going
+                        through the cites of the word in classical literature,
+                        discovered the undoubtable source. Lorem Ipsum comes
+                        from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum
+                        et Malorum" (The Extremes of Good and Evil) by Cicero,
+                        written in 45 BC. This book is a treatise on the theory
+                        of ethics, very popular during the Renaissance. The
+                        first line of Lorem Ipsum, "Lorem ipsum dolor sit
+                        amet..", comes from a line in section 1.10.32. The
+                        standard chunk of Lorem Ipsum used since the 1500s is
+                        reproduced below for those interested. Sections 1.10.32
+                        and 1.10.33 from "de Finibus Bonorum et Malorum" by
+                        Cicero are also reproduced in their exact original form,
+                        accompanied by English versions from the 1914
+                        translation by H. Rackham.Where does it come from?
+                        Contrary to popular belief, Lorem Ipsum is not simply
+                        random text. It has roots in a piece of classical Latin
+                        literature from 45 BC, making it over 2000 years old.
+                        Richard McClintock, a Latin professor at Hampden-Sydney
+                        College in Virginia, looked up one of the more obscure
+                        Latin words, consectetur, from a Lorem Ipsum passage,
+                        and going through the cites of the word in classical
+                        literature, discovered the undoubtable source. Lorem
+                        Ipsum comes from sections 1.10.32 and 1.10.33 of "de
+                        Finibus Bonorum et Malorum" (The Extremes of Good and
+                        Evil) by Cicero, written in 45 BC. This book is a
+                        treatise on the theory of ethics, very popular during
+                        the Renaissance. The first line of Lorem Ipsum, "Lorem
+                        ipsum dolor sit amet..", comes from a line in section
+                        1.10.32. The standard chunk of Lorem Ipsum used since
+                        the 1500s is reproduced below for those interested.
+                        Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et
+                        Malorum" by Cicero are also reproduced in their exact
+                        original form, accompanied by English versions from the
+                        1914 translation by H. Rackham.
+                    </p>
                 </div>
             </div>
             {/* Side Items */}
-            <div className="w-full md:w-1/4 px-2">
+            <div className="w-full md:w-1/4 px-2 md:pl-12 md:fixed md:right-0">
                 <div className="relative bg-[#FF007C] w-full h-[110px] rounded-xl mb-2">
                     <div className="absolute left-4 bottom-2 text-white">
-                        <p className="font-bold text-sm">+KES 90,000</p>
+                        <div className="flex flex-row items-center">
+                            <p className="font-bold text-sm pr-3">
+                                +KES 90,000
+                            </p>{' '}
+                            <BsFillEyeFill />
+                        </div>
                         <p className="text-[8px] ml-2">Revenue This Month</p>
                     </div>
                 </div>
@@ -62,7 +130,7 @@ const Home = () => {
                             <p className="text-[8px]">Credit Sales</p>
                         </div>
                     </div>
-                    <div className="relative bg-[#FD9C29] w-full h-[100px] rounded-xl mb-2 mr-1">
+                    <div className="relative bg-[#FD9C29] w-full h-[100px] rounded-xl mb-2">
                         <img
                             src={customers}
                             className="absolute top-2 left-4 w-4 h-8"
@@ -87,7 +155,7 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <div className="relative bg-[#9329FE] w-full h-[100px] rounded-xl mb-2 mr-1">
+                    <div className="relative bg-[#9329FE] w-full h-[100px] rounded-xl mb-2">
                         <img
                             src={wallet}
                             className="absolute top-2 left-4 w-4 h-8"
@@ -126,11 +194,11 @@ const Home = () => {
                         </CircularProgressbarWithChildren>
                     </div>
                     <div className="p-2">
-                        <ul className="flex flex-row justify-around text-sm">
-                            <li className="list-disc marker:text-[#00CCF2]">
+                        <ul className="flex flex-row justify-around text-xs">
+                            <li className="list-disc marker:text-[#00CCF2] font-bold">
                                 Today
                             </li>
-                            <li className="list-disc marker:text-[#93969D]">
+                            <li className="list-disc marker:text-[#93969D] text-gray-500">
                                 This Month
                             </li>
                         </ul>
