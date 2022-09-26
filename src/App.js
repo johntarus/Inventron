@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Navbar, Header, Sidebar } from './components'
+import { Navbar, Sidebar } from './components'
 import {
     Home,
     Inventory,
@@ -18,7 +18,7 @@ const App = () => {
             <BrowserRouter>
                 <div className="flex relative">
                     {activeMenu ? (
-                        <div className="fixed bg-lightBlue md:w-44 min-h-screen rounded-r-[16px] text-white z-10">
+                        <div className="fixed bg-lightBlue md:w-44 min-h-screen rounded-r-[16px] text-white z-20">
                             <Sidebar />
                         </div>
                     ) : (
@@ -31,11 +31,11 @@ const App = () => {
                             activeMenu ? 'md:ml-0' : 'flex-2'
                         }`}
                     >
-                        <div className="fixed md:static dark:bg-main-dark-bg navbar w-full shadow-md h-14 items-center">
+                        <div className="fixed w-full bg-mainBg shadow-md h-14 items-center z-10">
                             <Navbar />
                         </div>
 
-                        <div className="md:ml-44">
+                        <div className="md:ml-44 z-2">
                             <Routes>
                                 <Route path="/home" element={<Home />} />
                                 <Route
