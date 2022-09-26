@@ -31,13 +31,13 @@ const App = () => {
                             activeMenu ? 'md:ml-0' : 'flex-2'
                         }`}
                     >
-                        <div className="fixed w-full bg-mainBg shadow-md h-14 items-center z-10">
+                        <div className="fixed w-full bg-mainBg shadow-md h-12 items-center z-10">
                             <Navbar />
                         </div>
 
                         <div className="md:ml-44 z-2">
                             <Routes>
-                                <Route path="/home" element={<Home />} />
+                                <Route path="/" element={<Home />} />
                                 <Route
                                     path="/inventory"
                                     element={<Inventory />}
