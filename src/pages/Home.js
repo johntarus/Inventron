@@ -1,6 +1,6 @@
 import React from 'react'
-import CreditSales from './CreditSales'
-import Hero from './Hero'
+import CreditSales from '../components/CreditSales'
+import Hero from '../components/Hero'
 import SideItems from './SideItems'
 
 const Home = () => {

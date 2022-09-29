@@ -3,6 +3,8 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "@emotion/styled": "^11.10.4",
+        "@mui/icons-material": "^5.10.6",
         "@react-md/icon": "^5.1.3",
         "@syncfusion/ej2-react-charts": "^19.4.50",
         "@syncfusion/ej2-react-grids": "^19.4.50",

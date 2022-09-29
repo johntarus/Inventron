@@ -4,6 +4,7 @@ import transactions from './transactions.svg'
 import people from './people.svg'
 import shops from './shops.svg'
 import chart from './chart.svg'
+import MoreVertIcon from '@mui/icons-material/MoreVert'
 export const dashBoardLinks = [
     { name: 'Home', linkName: 'home', icon: home },
     { name: 'Inventory', linkName: 'inventory', icon: inventory },
@@ -11,4 +12,55 @@ export const dashBoardLinks = [
     { name: 'People', linkName: 'people', icon: people },
     { name: 'Shops', linkName: 'shops', icon: shops },
     { name: 'Chat Support', linkName: 'chart-support', icon: chart },
+]
+
+function createData(name, customer, date, amount, status, phone, dots) {
+    return { name, customer, date, amount, status, phone, dots }
+}
+export const rows = [
+    createData(
+        '003451',
+        'Eugen Chweya',
+        '22 June 2020',
+        'KES 200',
+        'Paid',
+        '+254712345678',
+        <MoreVertIcon />
+    ),
+    createData(
+        '003452',
+        'Eugen Chweya',
+        '22 June 2020',
+        'KES 900',
+        'Pending',
+        '+254712345678',
+        <MoreVertIcon />
+    ),
+    createData(
+        '003453',
+        'Eugen Chweya',
+        '22 June 2020',
+        'KES 1,200',
+        'Pending',
+        '+254712345678',
+        <MoreVertIcon />
+    ),
+    createData(
+        '003454',
+        'Eugen Chweya',
+        '22 June 2020',
+        'KES 150',
+        'Paid',
+        '+254712345678',
+        <MoreVertIcon />
+    ),
+    createData(
+        '003455',
+        'Eugen Chweya',
+        '22 June 2020',
+        'KES 230',
+        'Paid',
+        '+254712345678',
+        <MoreVertIcon />
+    ),
 ]
