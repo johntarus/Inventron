@@ -7,3 +7,18 @@
 @import '../node_modules/@syncfusion/ej2-popups/styles/material.css';
 @import '../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css';
 @import '../node_modules/@syncfusion/ej2-react-grids/styles/material.css';
+
+.performing {
+    display: inline-block;
+    padding-bottom: 5px;
+    position: relative;
+}
+.performing:before {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 1px;
+    bottom: 0;
+    left: 15%;
+    border-bottom: 3px solid #2951fe;
+}

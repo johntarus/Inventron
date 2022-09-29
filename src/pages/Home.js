@@ -1,7 +1,8 @@
 import React from 'react'
 import CreditSales from '../components/CreditSales'
+import ProductPerformance from '../components/ProductPerformance'
 import Hero from '../components/Hero'
-import SideItems from './SideItems'
+import SideItems from '../components/SideItems'
 
 const Home = () => {
     return (
@@ -9,6 +10,7 @@ const Home = () => {
             <div className="flex flex-col md:ml-4 w-full md:pr-6 md:w-3/4">
                 <Hero />
                 <CreditSales />
+                <ProductPerformance />
                 <SideItems />
             </div>
         </div>

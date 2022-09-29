@@ -68,7 +68,7 @@ const SideItems = () => {
                     </div>
                 </div>
             </div>
-            <div className="relative shadow-xl rounded-xl">
+            <div className="relative shadow-xl rounded-xl p-5">
                 <div className="flex justify-between p-2 mb-1">
                     <p className="font-bold">Quick Inventory</p>
                     <BiDotsVerticalRounded className="cursor-pointer" />
@@ -95,7 +95,7 @@ const SideItems = () => {
                     </CircularProgressbarWithChildren>
                 </div>
                 <div className="p-2 pb-4">
-                    <ul className="flex flex-row justify-around text-xs">
+                    <ul className="absolute flex flex-row left-8 bottom-4 gap-8 text-xs">
                         <li className="list-disc marker:text-[#00CCF2] font-bold">
                             Today
                         </li>

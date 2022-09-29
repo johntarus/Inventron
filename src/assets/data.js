@@ -11,7 +11,7 @@ export const dashBoardLinks = [
     { name: 'Transactions', linkName: 'transactions', icon: transactions },
     { name: 'People', linkName: 'people', icon: people },
     { name: 'Shops', linkName: 'shops', icon: shops },
-    { name: 'Chat Support', linkName: 'chart-support', icon: chart },
+    { name: 'Chat Support', linkName: 'chat-support', icon: chart },
 ]
 
 function createData(name, customer, date, amount, status, phone, dots) {
