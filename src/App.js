@@ -37,7 +37,7 @@ const App = () => {
 
                         <div className="md:ml-44 z-2">
                             <Routes>
-                                <Route path="/" element={<Home />} />
+                                <Route path="/home" element={<Home />} />
                                 <Route
                                     path="/inventory"
                                     element={<Inventory />}
