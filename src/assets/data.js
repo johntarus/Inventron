@@ -17,6 +17,10 @@ export const dashBoardLinks = [
 function createData(name, customer, date, amount, status, phone, dots) {
     return { name, customer, date, amount, status, phone, dots }
 }
+function createPeople(name, customer, phone, dots) {
+    return { name, customer, phone, dots }
+}
+
 export const rows = [
     createData(
         '003451',
@@ -63,4 +67,22 @@ export const rows = [
         '+254712345678',
         <MoreVertIcon />
     ),
+]
+
+export const peopleRows = [
+    createPeople(
+        'Eugen Chweya',
+        'Shopkeeper',
+        '+254712345678',
+        <MoreVertIcon />
+    ),
+    createPeople('Eugen Chweya', 'Customer', '+254712345678', <MoreVertIcon />),
+    createPeople('Eugen Chweya', 'Customer', '+254712345678', <MoreVertIcon />),
+    createPeople(
+        'Eugen Chweya',
+        'Shopkeeper',
+        '+254712345678',
+        <MoreVertIcon />
+    ),
+    createPeople('Eugen Chweya', 'Customer', '+254712345678', <MoreVertIcon />),
 ]
