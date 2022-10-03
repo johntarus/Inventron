@@ -1,6 +1,7 @@
 import React from 'react'
 import { BiDotsVerticalRounded } from 'react-icons/bi'
 import { BsFillEyeFill } from 'react-icons/bs'
+import { BsFillArrowUpRightCircleFill } from 'react-icons/bs'
 import customers from '../assets/customers.svg'
 import copy from '../assets/copy.svg'
 import wallet from '../assets/wallet.svg'
@@ -17,18 +18,31 @@ const SideItems = () => {
                 <div className="absolute left-4 bottom-2 text-white">
                     <div className="flex flex-row items-center">
                         <p className="font-bold text-sm pr-3">+KES 90,000</p>{' '}
-                        <BsFillEyeFill />
+                        <BsFillEyeFill className="cursor-pointer" />
                     </div>
                     <p className="text-[8px] ml-2">Revenue This Month</p>
                 </div>
+
+                <div className="absolute bottom-2 right-2">
+                    <BsFillArrowUpRightCircleFill
+                        className="hover:rotate-45 hover:fill-[#A72D68] cursor-pointer bg-white break-inside-avoid rounded-full"
+                        fill="#FF007C"
+                    />
+                </div>
             </div>
-            <div className="flex flex-row text-white">
+            <div className="relative flex flex-row text-white">
                 <div className="relative bg-[#2D62ED] w-full h-[100px] rounded-xl mb-2 mr-1">
                     <img src={copy} className="absolute top-2 left-4 w-4 h-8" />
                     <div className="absolute left-4 bottom-2">
                         <p className="font-bold">12</p>
                         <p className="text-[8px]">Pending</p>
                         <p className="text-[8px]">Credit Sales</p>
+                    </div>
+                    <div className="absolute bottom-2 right-2">
+                        <BsFillArrowUpRightCircleFill
+                            className="hover:rotate-45 cursor-pointer bg-white break-inside-avoid rounded-full"
+                            fill="#D2DAFF"
+                        />
                     </div>
                 </div>
                 <div className="relative bg-[#FD9C29] w-full h-[100px] rounded-xl mb-2">
@@ -40,6 +54,12 @@ const SideItems = () => {
                         <p className="font-bold">400</p>
                         <p className="text-[8px]">My</p>
                         <p className="text-[8px]">Customers</p>
+                    </div>
+                    <div className="absolute bottom-2 right-2">
+                        <BsFillArrowUpRightCircleFill
+                            className="hover:rotate-45 hover:fill-[#9329FE] cursor-pointer bg-white break-inside-avoid rounded-full"
+                            fill="#D2DAFF"
+                        />
                     </div>
                 </div>
             </div>
@@ -54,6 +74,12 @@ const SideItems = () => {
                         <p className="text-[8px]">Items</p>
                         <p className="text-[8px]">Out of Stock</p>
                     </div>
+                    <div className="absolute bottom-2 right-2">
+                        <BsFillArrowUpRightCircleFill
+                            className="hover:rotate-45 hover:fill-[#9329FE] cursor-pointer bg-white break-inside-avoid rounded-full"
+                            fill="#D2DAFF"
+                        />
+                    </div>
                 </div>
 
                 <div className="relative bg-[#9329FE] w-full h-[100px] rounded-xl mb-2">
@@ -65,6 +91,12 @@ const SideItems = () => {
                         <p className="font-bold">KES*****</p>
                         <p className="text-[8px]">Wallet</p>
                         <p className="text-[8px]">Balance</p>
+                    </div>
+                    <div className="absolute bottom-2 right-2">
+                        <BsFillEyeFill
+                            className="cursor-pointer bg-[#BA58E6] overflow-hidden break-inside-avoid rounded-full"
+                            fill="#D2DAFF"
+                        />
                     </div>
                 </div>
             </div>
