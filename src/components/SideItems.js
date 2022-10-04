@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BiDotsVerticalRounded } from 'react-icons/bi'
 import { BsFillEyeFill } from 'react-icons/bs'
 import { BsFillArrowUpRightCircleFill } from 'react-icons/bs'
+import { BsFillArrowRightCircleFill } from 'react-icons/bs'
 import customers from '../assets/customers.svg'
 import copy from '../assets/copy.svg'
 import wallet from '../assets/wallet.svg'
@@ -12,6 +13,15 @@ import {
 import 'react-circular-progressbar/dist/styles.css'
 
 const SideItems = () => {
+    const [isHovering, setIsHovering] = useState(false)
+
+    const handleMouseOver = () => {
+        setIsHovering(true)
+    }
+
+    const handleMouseOut = () => {
+        setIsHovering(false)
+    }
     return (
         <div className="w-full md:w-1/4 px-2 md:pl-12 md:fixed md:right-0">
             <div className="relative bg-[#FF007C] w-full h-[110px] rounded-xl mb-2">
@@ -92,11 +102,24 @@ const SideItems = () => {
                         <p className="text-[8px]">Wallet</p>
                         <p className="text-[8px]">Balance</p>
                     </div>
-                    <div className="absolute bottom-2 right-2">
-                        <BsFillEyeFill
-                            className="cursor-pointer bg-[#BA58E6] overflow-hidden break-inside-avoid rounded-full"
-                            fill="#D2DAFF"
-                        />
+                    <div
+                        onMouseOver={handleMouseOver}
+                        onMouseOut={handleMouseOut}
+                        className="absolute bottom-2 right-2"
+                    >
+                        {' '}
+                        {isHovering && (
+                            <BsFillArrowRightCircleFill
+                                className="cursor-pointer bg-[#BA58E6] overflow-hidden break-inside-avoid rounded-full"
+                                fill="#D2DAFF"
+                            />
+                        )}
+                        {!isHovering && (
+                            <BsFillEyeFill
+                                className="cursor-pointer bg-[#BA58E6] overflow-hidden break-inside-avoid rounded-full"
+                                fill="#D2DAFF"
+                            />
+                        )}
                     </div>
                 </div>
             </div>
