@@ -22,7 +22,7 @@ const BigBarChart = () => {
             {
                 label: 'Product Performance',
                 data: [20, 40, 37, 20, 35, 45, 33, 45, 43, 45, 43, 48],
-                barThickness: 30,
+                barThickness: 20,
                 backgroundColor: [
                     '#E4E4E4',
                     '#E4E4E4',
