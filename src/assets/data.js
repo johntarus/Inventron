@@ -6,7 +6,7 @@ import shops from './shops.svg'
 import chart from './chart.svg'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 export const dashBoardLinks = [
-    { name: 'Home', linkName: 'home', icon: home },
+    { name: 'Home', linkName: '', icon: home },
     { name: 'Inventory', linkName: 'inventory', icon: inventory },
     { name: 'Transactions', linkName: 'transactions', icon: transactions },
     { name: 'People', linkName: 'people', icon: people },
