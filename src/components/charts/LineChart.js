@@ -1,6 +1,4 @@
-import React from 'react'
-import { Line } from 'react-chartjs-2'
-import { Chart as ChartJS } from 'chart.js/auto'
+import React, { useState } from 'react'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
@@ -9,46 +7,28 @@ import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
 import { RiArrowDropDownLine } from 'react-icons/ri'
-import { BsFillEyeFill } from 'react-icons/bs'
 import { peopleRows } from '../../assets/data'
+import SmoothLineChart from './SmoothLineChart'
+import SharpLineChart from './SharpLineChart'
 
 const LineChart = () => {
-    const data = {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June'],
-        datasets: [
-            {
-                label: 'wallet Balance',
-                data: [18, 22, 18, 16, 25, 15, 17],
-            },
-        ],
+    const [isHovering, setIsHovering] = useState(false)
+
+    const handleMouseOver = () => {
+        setIsHovering(true)
     }
 
-    const options = {
-        scales: {
-            x: {
-                grid: {
-                    display: true,
-                },
-            },
-            y: {
-                beginAtZero: true,
-                grid: {
-                    display: false,
-                },
-            },
-        },
+    const handleMouseOut = () => {
+        setIsHovering(false)
     }
+
     return (
         <div className="flex flex-col md:flex-row gap-3 pt-6">
             <div className="shadow-xl rounded-xl w-full md:w-1/2">
-                <div className="pl-4">
-                    <h1 className="font-bold">KES 9,564</h1>
-                    <div className="flex flex-peopleRows gap-6">
-                        <p className="text-xs">Wallet Balance</p>
-                        <BsFillEyeFill />
-                    </div>
+                <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+                    {isHovering && <SharpLineChart />}
+                    {!isHovering && <SmoothLineChart />}
                 </div>
-                <Line data={data} options={options} />
             </div>
             {/* Table */}
             <div className="shadow-xl rounded-xl w-full md:w-1/2 pt-4">

@@ -44,6 +44,11 @@ const BigBarChart = () => {
     const options = {
         responsive: true,
         maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: false,
+            },
+        },
         scales: {
             x: {
                 grid: {
