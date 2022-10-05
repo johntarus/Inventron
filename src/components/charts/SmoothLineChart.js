@@ -1,7 +1,7 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
 import { Chart as ChartJS } from 'chart.js/auto'
-import { BsBorderWidth, BsFillEyeFill } from 'react-icons/bs'
+import { BsFillEyeFill } from 'react-icons/bs'
 
 const SmoothLineChart = () => {
     const data = {

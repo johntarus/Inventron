@@ -56,7 +56,7 @@ const SharpLineChart = () => {
             <div className="pl-4">
                 <div className="flex flex-row justify-between">
                     <h1 className="font-bold">$ 9.564</h1>
-                    <img className="h-6 w-8 -mr-6" src={mastercard} />
+                    <img className="h-6 w-8" src={mastercard} />
                 </div>
                 <div className="flex flex-peopleRows gap-6">
                     <p className="text-xs">Card Balance</p>
