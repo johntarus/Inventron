@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Navbar, Sidebar } from './components'
 import {
@@ -13,6 +13,7 @@ import { useStateContext } from './contexts/ContextProvider'
 
 const App = () => {
     const { activeMenu } = useStateContext()
+
     return (
         <div>
             <BrowserRouter>
