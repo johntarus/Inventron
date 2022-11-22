@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Notification, UserProfile } from '.'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { MdLogout } from 'react-icons/md'
 import { IoIosNotificationsOutline } from 'react-icons/io'
 import { TooltipComponent } from '@syncfusion/ej2-react-popups'
 import { useStateContext } from '../contexts/ContextProvider'
+import { SignUp } from './auth'
+import { Link, useNavigate } from 'react-router-dom'
+import { HiOutlineUserCircle } from 'react-icons/hi'
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
     <TooltipComponent content={title} position="BottomCenter">
@@ -24,6 +27,13 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 )
 
 const Navbar = () => {
+    const [profile, setProfile] = useState(null)
+    const [clicked, setClicked] = useState(false)
+
+    const handleClicked = () => {
+        setClicked(!clicked)
+    }
+
     const {
         activeMenu,
         setActiveMenu,
@@ -50,7 +60,7 @@ const Navbar = () => {
     }, [screenSize])
 
     return (
-        <div className="flex justify-between p-2 md:mx-6 relative">
+        <div className="flex justify-between p-2 md:mx-6 relative ">
             <NavButton
                 title="Menu"
                 customFunc={() =>
@@ -104,19 +114,22 @@ const Navbar = () => {
                         icon={<IoIosNotificationsOutline />}
                     />
                 </div>
-                <TooltipComponent content="profile" position="BottomCenter">
+                <div
+                    onClick={handleClicked}
+                    content="profile"
+                    position="BottomCenter"
+                >
                     <div className="flex items-center p-0 gap-2 cursor-pointer hover:bg-gray-300 rounded-lg">
-                        {' '}
                         <NavButton
                             title="Profile"
                             customFunc={() => handleClick('profile')}
                             color="#808080"
-                            icon={<MdLogout />}
+                            icon={<HiOutlineUserCircle />}
                         />
                     </div>
-                </TooltipComponent>
-                {isClicked.notification && <Notification />}
-                {isClicked.profile && <UserProfile />}
+                </div>
+                {clicked && <UserProfile />}
+                {/* {profile && navigate('/signup')} */}
             </div>
         </div>
     )

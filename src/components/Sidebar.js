@@ -9,6 +9,7 @@ import { useStateContext } from '../contexts/ContextProvider'
 
 const Sidebar = () => {
     const { activeMenu, setActiveMenu, screenSize } = useStateContext()
+    const locate = location.pathname
 
     const handleCloseSideBar = () => {
         if (activeMenu && screenSize < 900) {
@@ -24,7 +25,7 @@ const Sidebar = () => {
                 <>
                     <div className="flex justify-between items-center">
                         <Link
-                            to="/home"
+                            to="/"
                             onClick={handleCloseSideBar}
                             className="items-center gap-2 mt-4 flex text-3xl font-extrabold text-[#FFE6C9]"
                         >
@@ -66,7 +67,12 @@ const Sidebar = () => {
                             </NavLink>
                         ))}
                     </div>
-                    <div className="absolute flex bottom-6 md:bottom-4 -ml-6 cursor-pointer">
+                    <div
+                        className={`absolute flex bottom-6 md:bottom-4 -ml-6 cursor-pointer ${
+                            (locate === '/signup' && 'hidden') ||
+                            (locate === '/signin' && 'hidden')
+                        }`}
+                    >
                         <img
                             src={profile}
                             className="ml-8 h-6 w-6 rounded-full ring-2 mr-2 ring-white"
