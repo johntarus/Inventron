@@ -111,10 +111,9 @@ const Navbar = () => {
                         icon={<IoIosNotificationsOutline />}
                     />
                 </div>
-                <div content="profile" position="BottomCenter">
+                <div position="BottomCenter">
                     <div className="flex items-center p-0 gap-2 cursor-pointer hover:bg-gray-300 rounded-lg">
                         <NavButton
-                            title="Profile"
                             customFunc={() => handleClicked()}
                             color="#808080"
                             icon={<HiOutlineUserCircle />}
