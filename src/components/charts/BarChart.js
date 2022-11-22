@@ -1,27 +1,40 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import Chart from 'chart.js/auto'
 import { Bar } from 'react-chartjs-2'
-import { Chart as ChartJS } from 'chart.js/auto'
 
 const BigBarChart = () => {
-    const data = {
-        labels: [
-            'Jan',
-            'Feb',
-            'Mar',
-            'Apr',
-            'May',
-            'June',
-            'July',
-            'Aug',
-            'Sept',
-            'Oct',
-            'Nov',
-            'Dec',
-        ],
+    const [data, setData] = useState([])
+    async function getData() {
+        const token = process.env.REACT_APP_API_KEY
+        try {
+            const response = await fetch(
+                'https://interview.inventron.co/api/v1/sales-data',
+                {
+                    method: 'GET',
+                    headers: {
+                        Authorization: 'Bearer ' + token,
+                        Accept: '*/*',
+                        'Access-Control-Allow-Origin': '*',
+                        'Content-Type': 'application/json',
+                    },
+                }
+            )
+            const result = await response.json()
+            setData(result)
+        } catch (err) {
+            console.log(err.message)
+        }
+    }
+    useEffect(() => {
+        getData()
+    }, [])
+
+    const dataInfo = {
+        labels: data?.map((monthType) => monthType.month),
         datasets: [
             {
-                label: 'Product Performance',
-                data: [20, 40, 37, 20, 35, 45, 33, 45, 43, 45, 43, 48],
+                label: 'KES',
+                data: data?.map((valueType) => valueType.value),
                 barThickness: 20,
                 backgroundColor: [
                     '#E4E4E4',
@@ -83,7 +96,7 @@ const BigBarChart = () => {
                 <h1>Worst Perfoming Product</h1>
             </div>
             <div className="shadow-xl rounded-xl">
-                <Bar data={data} options={options} height="200px" />
+                <Bar data={dataInfo} options={options} height="200px" />
             </div>
         </div>
     )
