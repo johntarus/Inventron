@@ -104,7 +104,6 @@ const Navbar = () => {
                 <div className="hover:bg-gray-300 rounded-lg mx-4">
                     {' '}
                     <NavButton
-                        title="Notifications"
                         dotColor="#2951FE"
                         customFunc={() => handleClick()}
                         color="#808080"
