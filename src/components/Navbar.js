@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Notification, UserProfile } from '.'
+import { Notification, UserProfile } from './'
 import { AiOutlineMenu } from 'react-icons/ai'
-import { MdLogout } from 'react-icons/md'
 import { IoIosNotificationsOutline } from 'react-icons/io'
 import { TooltipComponent } from '@syncfusion/ej2-react-popups'
 import { useStateContext } from '../contexts/ContextProvider'
-import { SignUp } from './auth'
-import { Link, useNavigate } from 'react-router-dom'
 import { HiOutlineUserCircle } from 'react-icons/hi'
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
@@ -27,7 +24,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 )
 
 const Navbar = () => {
-    const [profile, setProfile] = useState(null)
+    // const [profile, setProfile] = useState(null)
     const [clicked, setClicked] = useState(false)
 
     const handleClicked = () => {
@@ -109,20 +106,16 @@ const Navbar = () => {
                     <NavButton
                         title="Notifications"
                         dotColor="#2951FE"
-                        customFunc={() => handleClick('notification')}
+                        customFunc={() => handleClick()}
                         color="#808080"
                         icon={<IoIosNotificationsOutline />}
                     />
                 </div>
-                <div
-                    onClick={handleClicked}
-                    content="profile"
-                    position="BottomCenter"
-                >
+                <div content="profile" position="BottomCenter">
                     <div className="flex items-center p-0 gap-2 cursor-pointer hover:bg-gray-300 rounded-lg">
                         <NavButton
                             title="Profile"
-                            customFunc={() => handleClick('profile')}
+                            customFunc={() => handleClicked()}
                             color="#808080"
                             icon={<HiOutlineUserCircle />}
                         />
