@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { MdOutlineCancel } from 'react-icons/md'
 import { TooltipComponent } from '@syncfusion/ej2-react-popups'
 import { dashBoardLinks } from '../assets/data'
-import profile from '../assets/profile.jpg'
+import profile from '../assets/profile.png'
 import { RiArrowDropDownLine } from 'react-icons/ri'
 import { useStateContext } from '../contexts/ContextProvider'
 
@@ -31,10 +31,7 @@ const Sidebar = () => {
                         >
                             Inventron
                         </Link>
-                        <TooltipComponent
-                            content="Menu"
-                            position="BottomCenter"
-                        >
+                        <TooltipComponent position="BottomCenter">
                             <button
                                 type="button"
                                 onClick={() =>
@@ -78,7 +75,7 @@ const Sidebar = () => {
                             className="ml-8 h-6 w-6 rounded-full ring-2 mr-2 ring-white"
                         />
                         <div className="flex flex-col text-xs">
-                            <p className="text-bold">Tafari Mwangi</p>
+                            <p className="text-bold">user</p>
                             <p className="flex items-center font-extralight text-gray-400">
                                 Active
                                 <span>

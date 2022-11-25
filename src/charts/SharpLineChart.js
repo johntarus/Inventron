@@ -1,7 +1,7 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
 import { BsFillEyeFill } from 'react-icons/bs'
-import mastercard from '../../assets/mastercard.svg'
+import mastercard from '../assets/mastercard.svg'
 
 const SharpLineChart = () => {
     const data = {

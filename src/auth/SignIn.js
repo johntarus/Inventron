@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-
 const SignIn = () => {
     const navigate = useNavigate()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [username, setUsername] = useState('')
     const [successful, setSuccessful] = useState('')
     const [error, setError] = useState('')
 
@@ -15,14 +15,14 @@ const SignIn = () => {
             .post('https://interview.inventron.co/api/v1/auth/signin', {
                 email,
                 password,
+                username,
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 withCredentials: true,
             })
             .then((response) => {
-                console.log(response)
-                localStorage.setItem('token', JSON.stringify(response.data))
+                localStorage.setItem('token', JSON.stringify(response))
                 if (response.status === 200) {
                     setSuccessful('Logged in successfully')
                     setTimeout(() => {
@@ -41,16 +41,44 @@ const SignIn = () => {
                     setError('Login Failed')
                 }
             })
-        setEmail(''), setPassword('')
+        setUsername(''), setEmail(''), setPassword('')
     }
 
     return (
         <div className="mx-auto p-6 md:mt-24 mt-32 rounded-lg shadow-lg bg-white max-w-sm">
             <h2 className="text-xl font-semibold mb-6 text-center">Sign In</h2>
-            <p className="bg-red-500 mb-2 text-center text-white rounded-lg">
-                {error}
-            </p>
+            <p className="mb-2 text-center text-red-500 rounded-lg">{error}</p>
             <form onSubmit={handleLogin}>
+                <div className="form-group mb-6">
+                    <label
+                        htmlFor="username"
+                        className="form-label inline-block mb-2 text-gray-700"
+                    >
+                        Username
+                    </label>
+                    <input
+                        type="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        className="
+          block
+          w-full
+          px-3
+          py-1.5
+          text-base
+          font-normal
+          text-gray-700
+          bg-white bg-clip-padding
+          border border-solid border-gray-300
+          rounded
+          transition
+          ease-in-out
+          m-0
+          focus:text-gray-700 focus:bg-white focus:border-[#9329FE] focus:outline-none"
+                        placeholder="Enter Username"
+                        required
+                    />
+                </div>
                 <div className="form-group mb-6">
                     <label
                         htmlFor="email"
@@ -79,8 +107,9 @@ const SignIn = () => {
           focus:text-gray-700 focus:bg-white focus:border-[#9329FE] focus:outline-none"
                         placeholder="Enter email"
                         required
-                    ></input>
+                    />
                 </div>
+
                 <div className="form-group mb-4">
                     <label
                         htmlFor="Password"

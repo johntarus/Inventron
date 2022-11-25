@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { Navbar, Sidebar } from './components'
-import { SignIn, SignUp } from './components/auth'
+import { SignIn, SignUp } from './auth'
 import {
     Home,
     Inventory,

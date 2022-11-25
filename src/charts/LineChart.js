@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import SmoothLineChart from './SmoothLineChart'
 import SharpLineChart from './SharpLineChart'
-import SmallTable from '../SmallTable'
+import SmallTable from '../components/SmallTable'
 
 const LineChart = () => {
     const [isHovering, setIsHovering] = useState(false)
