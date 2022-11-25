@@ -24,12 +24,23 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 )
 
 const Navbar = () => {
-    // const [profile, setProfile] = useState(null)
     const [clicked, setClicked] = useState(false)
+    const [notificationClick, setNotificationClick] = useState(false)
 
     const handleClicked = () => {
         setClicked(!clicked)
+        setNotificationClick(false)
     }
+    const handleNotificationClick = () => {
+        setNotificationClick(!notificationClick)
+        setClicked(false)
+    }
+    // window.setTimeout(() => {
+    //     window.addEventListener('mousedown', (e) => {
+    //         setClicked(false)
+    //         setNotificationClick(false)
+    //     })
+    // }, 5000)
 
     const {
         activeMenu,
@@ -105,7 +116,7 @@ const Navbar = () => {
                     {' '}
                     <NavButton
                         dotColor="#2951FE"
-                        customFunc={() => handleClick()}
+                        customFunc={() => handleNotificationClick()}
                         color="#808080"
                         icon={<IoIosNotificationsOutline />}
                     />
@@ -120,6 +131,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 {clicked && <UserProfile />}
+                {notificationClick && <Notification />}
                 {/* {profile && navigate('/signup')} */}
             </div>
         </div>

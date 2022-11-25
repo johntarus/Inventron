@@ -7,7 +7,7 @@ const Hero = () => {
             <div className="my-4 font-bold text-xl ml-4 md:ml-0">Dashboard</div>
             <div className="flex flex-col-reverse md:flex-row md:mt-0 justify-between px-4 md:px-8 rounded-xl shadow-md">
                 <div>
-                    <h1 className="font-bold">Welcome back Tafari!</h1>
+                    <h1 className="font-bold">Welcome back user!</h1>
                     <p className="text-sm">
                         Since your last login in the system, there were:
                     </p>
