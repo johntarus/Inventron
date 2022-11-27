@@ -1,5 +1,5 @@
 import axios from 'axios'
 
 export default axios.create({
-    baseURL: 'https://interview.inventron.co/',
+    baseURL: 'https://interview.inventron.co',
 })

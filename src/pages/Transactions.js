@@ -7,29 +7,27 @@ import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
+import api from '../api/data'
 
 const Transactions = () => {
     const [data, setData] = useState([])
+    const token = JSON.parse(localStorage.getItem('token'))
     async function getData() {
-        const token = process.env.REACT_APP_API_KEY
-        try {
-            const response = await fetch(
-                'https://interview.inventron.co/api/v1/transactions',
-                {
-                    method: 'GET',
-                    headers: {
-                        Authorization: 'Bearer ' + token,
-                        Accept: '*/*',
-                        'Access-Control-Allow-Origin': '*',
-                        'Content-Type': 'application/json',
-                    },
-                }
-            )
-            const result = await response.json()
-            setData(result)
-        } catch (err) {
-            console.log(err.message)
-        }
+        await api
+            .get('/api/v1/transactions', {
+                headers: {
+                    Authorization: 'Bearer ' + token,
+                    Accept: '*/*',
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then((response) => {
+                setData(response.data)
+            })
+            .catch((error) => {
+                // console.log(error)
+            })
     }
     useEffect(() => {
         getData()
