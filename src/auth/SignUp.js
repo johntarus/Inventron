@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import api from '../api/data'
 
 const SignUp = () => {
     const [userName, setUserName] = useState('')
@@ -15,8 +15,8 @@ const SignUp = () => {
 
     const handleRegister = async (e) => {
         e.preventDefault()
-        axios
-            .post('https://interview.inventron.co/api/v1/auth/signup', {
+        await api
+            .post('/api/v1/auth/signup', {
                 userName,
                 email,
                 password,

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import api from '../api/data'
 const SignIn = () => {
     const navigate = useNavigate()
     const [email, setEmail] = useState('')
@@ -11,8 +11,8 @@ const SignIn = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault()
-        axios
-            .post('https://interview.inventron.co/api/v1/auth/signin', {
+        await api
+            .post('/api/v1/auth/signin', {
                 email,
                 password,
                 username,
@@ -22,7 +22,7 @@ const SignIn = () => {
                 withCredentials: true,
             })
             .then((response) => {
-                localStorage.setItem('token', JSON.stringify(response))
+                localStorage.setItem('token', JSON.stringify(response.data))
                 if (response.status === 200) {
                     setSuccessful('Logged in successfully')
                     setTimeout(() => {
