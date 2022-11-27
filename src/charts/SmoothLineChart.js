@@ -1,30 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import { Line } from 'react-chartjs-2'
 import { BsFillEyeFill } from 'react-icons/bs'
+import api from '../api/data'
 
 const SmoothLineChart = () => {
     const [data, setData] = useState([])
     async function getData() {
-        const token = process.env.REACT_APP_API_KEY
-        try {
-            const response = await fetch(
-                'https://interview.inventron.co/api/v1/wallet-data',
-                {
-                    method: 'GET',
-                    headers: {
-                        Authorization: 'Bearer ' + token,
-                        Accept: '*/*',
-                        'Access-Control-Allow-Origin': '*',
-                        'Content-Type': 'application/json',
-                    },
-                }
-            )
-            const result = await response.json()
-            setData(result)
-            console.log(result)
-        } catch (err) {
-            console.log(err.message)
-        }
+        const token = JSON.parse(localStorage.getItem('token'))
+        await api
+            .get('/api/v1/wallet-data', {
+                headers: {
+                    Authorization: 'Bearer ' + token,
+                    Accept: '*/*',
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then((response) => {
+                setData(response.data)
+            })
+            .catch((error) => {
+                // console.log(error)
+            })
     }
     useEffect(() => {
         getData()
