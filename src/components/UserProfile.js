@@ -2,7 +2,7 @@ import React from 'react'
 
 const UserProfile = () => {
     // const user = window.localStorage.getItem('token')
-    // console.log(user.username)
+    // console.log(user)
     const logout = () => {
         localStorage.removeItem('token')
         window.location.reload()
